@@ -20,9 +20,9 @@ app.use(express.json());
 
 
 // API
-// app.get("/", (req, res) => {
-//     res.send("API is running");
-// });
+app.get("/", (req, res) => {
+    res.send("API is running");
+});
 
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
