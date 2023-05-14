@@ -6,6 +6,7 @@ const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
+const path = require("path")
 
 
 // APP INITIALIZATION
@@ -19,17 +20,34 @@ app.use(express.json());
 
 
 // API
-app.get("/", (req, res) => {
-    res.send("API is running");
-});
+// app.get("/", (req, res) => {
+//     res.send("API is running");
+// });
 
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
+// ---------------DEPLOYMENT-------------------
+
+// const __dirname1 = path.resolve();
+
+// if (process.env.NODE_ENV === "production") {
+//     app.use(express.static(path.join(__dirname1, "/frontend/build")));
+
+//     app.get("*", (req, res) =>
+//         res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"))
+//     );
+// } else {
+//     app.get("/", (req, res) => {
+//         res.send("API is running..");
+//     });
+// }
+
+// --------------------------------------------
+
 app.use(notFound);
 app.use(errorHandler);
-
 
 // PORTS CONFIG
 const PORT = process.env.PORT || 5002;
@@ -40,7 +58,7 @@ const server = app.listen(PORT, console.log(`Server started on PORT ${PORT}`));
 const io = require("socket.io")(server, {
     pingTimeOut: 60000, // 60 seconds
     cors: {
-        origin: "http://localhost:3000"
+        origin: "https://talkative-39yu.onrender.com/"
     },
 });
 
