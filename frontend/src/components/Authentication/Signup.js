@@ -134,7 +134,7 @@ const Signup = () => {
     return (
         <VStack spacing="5px" color="black">
             {/* NAME */}
-            <FormControl id='first-name' isRequired>
+            <FormControl name='name' isRequired>
                 <FormLabel>Name</FormLabel>
                 <Input
                     placeholder='Enter your name'
@@ -143,7 +143,7 @@ const Signup = () => {
             </FormControl>
 
             {/* EMAIL */}
-            <FormControl id='email' isRequired>
+            <FormControl name='email' isRequired>
                 <FormLabel>Email</FormLabel>
                 <Input
                     placeholder='Enter your email'
@@ -152,7 +152,7 @@ const Signup = () => {
             </FormControl>
 
             {/* PASSWORD */}
-            <FormControl id='password' isRequired>
+            <FormControl name='password' isRequired>
                 <FormLabel>Password</FormLabel>
                 <InputGroup>
                     <Input
@@ -169,7 +169,7 @@ const Signup = () => {
             </FormControl>
 
             {/* CONFIRM PASSWORD */}
-            <FormControl id='password' isRequired>
+            <FormControl name='password' isRequired>
                 <FormLabel>Confirm Password</FormLabel>
                 <InputGroup>
                     <Input
@@ -186,7 +186,7 @@ const Signup = () => {
             </FormControl>
 
             {/* PICTURE */}
-            <FormControl id='pic'>
+            <FormControl name='pic'>
                 <FormLabel>Upload your picture</FormLabel>
                 <Input
                     type='file'
