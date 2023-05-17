@@ -12,7 +12,7 @@ import ScrollableChat from "./ScrollableChat";
 
 import io from "socket.io-client";
 // const ENDPOINT = "http://localhost:5000.com";
-const ENDPOINT = "https://talkative-api.onrender.com"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
+const ENDPOINT = "https://talkative-api.onrender.com/"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
 let socket, selectedChatCompare;
 
 
