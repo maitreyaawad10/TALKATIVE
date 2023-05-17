@@ -18,6 +18,8 @@ connectDB();
 // MIDDLEWARE FOR JSON DATA
 app.use(express.json());
 
+// NEW MIDDLEWARE
+app.use(express.urlencoded({ extended: true }))
 
 // API
 app.get("/", (req, res) => {
