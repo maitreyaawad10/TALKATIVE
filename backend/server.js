@@ -20,6 +20,8 @@ app.use(express.json());
 
 // NEW MIDDLEWARE
 app.use(express.urlencoded({ extended: true }))
+app.use(cors());
+
 
 // API
 app.get("/", (req, res) => {
