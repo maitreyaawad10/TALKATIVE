@@ -21,16 +21,17 @@ app.use(express.json());
 
 // NEW MIDDLEWARE
 app.use(express.urlencoded({ extended: true }))
-app.use(cors({
-    origin: '*',
-    methods: [
-        'GET',
-        'POST',
-    ],
-    allowedHeaders: [
-        'Content-Type',
-    ],
-}));
+// app.use(cors());
+// app.use(cors({
+//     origin: '*',
+//     methods: [
+//         'GET',
+//         'POST',
+//     ],
+//     allowedHeaders: [
+//         'Content-Type',
+//     ],
+// }));
 
 // API
 app.get("/", (req, res) => {
@@ -52,8 +53,13 @@ const server = app.listen(PORT, console.log(`Server started on PORT ${PORT}`));
 // SOCKET.IO CONFIG
 const io = require("socket.io")(server, {
     pingTimeOut: 60000, // 60 seconds
+
     cors: {
-        origin: "https://talkative.vercel.app/"
+        // origin: "https://talkative.vercel.app/"
+        origin: "https://talkative.vercel.app/",
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["my-custom-header"],
+        credentials: true
     },
 });
 
