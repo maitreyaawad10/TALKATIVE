@@ -19,19 +19,11 @@ connectDB();
 // MIDDLEWARE FOR JSON DATA
 app.use(express.json());
 
+
 // NEW MIDDLEWARE
 app.use(express.urlencoded({ extended: true }))
-// app.use(cors());
-// app.use(cors({
-//     origin: '*',
-//     methods: [
-//         'GET',
-//         'POST',
-//     ],
-//     allowedHeaders: [
-//         'Content-Type',
-//     ],
-// }));
+app.use(cors());
+
 
 // API
 app.get("/", (req, res) => {
@@ -45,6 +37,7 @@ app.use("/api/message", messageRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
+
 // PORTS CONFIG
 const PORT = process.env.PORT || 5002;
 const server = app.listen(PORT, console.log(`Server started on PORT ${PORT}`));
@@ -55,7 +48,6 @@ const io = require("socket.io")(server, {
     pingTimeOut: 60000, // 60 seconds
 
     cors: {
-        // origin: "https://talkative.vercel.app/"
         origin: "https://talkative.vercel.app",
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["my-custom-header"],
