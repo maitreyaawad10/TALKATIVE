@@ -56,7 +56,7 @@ const io = require("socket.io")(server, {
 
     cors: {
         // origin: "https://talkative.vercel.app/"
-        origin: "https://talkative.vercel.app/",
+        origin: "https://talkative.vercel.app",
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["my-custom-header"],
         credentials: true
